@@ -3,7 +3,7 @@ import unittest
 from get_book_details import GoodreadsAPIClient
 
 
-class TestBookDetails(unittest.TestCase):
+class TestBookDetailsScript(unittest.TestCase):
     gr_client = GoodreadsAPIClient()
 
     def test_success_response_01(self):

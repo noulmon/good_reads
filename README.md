@@ -16,6 +16,7 @@ _**BOOK DETAILS**_ is a 'Python Script' that fetches the details of a book from 
 
 ### Running the Script:
 To run the script, type following in your command line:
+
 `python get_book_details.py <GOODREADS BOOK URL>`
 
 Replace `<GOODREADS BOOK URL>` with a book url from goodreads.
@@ -24,7 +25,13 @@ Example:
 
 `python get_book_details.py https://www.goodreads.com/book/show/12177850-a-song-of-ice-and-fire`
 
+### Running the Tests:
+
+To run the tests, type the following in the command line:
+
+`python -m unittest test`
+
 ### Note:
- - If the url is invalid, the script will raise an exception`InvalidGoodreadsURL`.
+ - If the url is invalid, the script will raise an exception `InvalidGoodreadsURL`.
  - API_KEY is mandatory for the script to work.
 
