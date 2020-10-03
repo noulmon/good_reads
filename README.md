@@ -1,20 +1,20 @@
 # BOOK DETAILS(GOODREADS)
 
-### Introduction:
+### 1. Introduction:
 _**BOOK DETAILS**_ is a 'Python Script' that fetches the details of a book from 'goodreads.com' when given the url to the book.
 
 
-### Follow the steps to _setup the script_:
+### 2. Follow the steps to _setup the script_:
 
-1. Install all the required packages(python modules):
+1.1. Install all the required packages(python modules):
 
     ```pip install -r requirements.txt```
     
-2. Add you API_KEY to the environment variables:
+1.2. Add you API_KEY to the environment variables:
 
    Open the `.env` file and replace `<YOU_API_KEY_HERE>` with your goodreads API key for the variable API_KEY.
 
-### Running the Script:
+### 3. Running the Script:
 To run the script, type following in your command line:
 
 `python get_book_details.py <GOODREADS BOOK URL>`
@@ -25,13 +25,13 @@ Example:
 
 `python get_book_details.py https://www.goodreads.com/book/show/12177850-a-song-of-ice-and-fire`
 
-### Running the Tests:
+### 3. Running the Tests:
 
 To run the tests, type the following in the command line:
 
 `python -m unittest test`
 
-### Note:
+### 4. Note:
  - If the url is invalid, the script will raise an exception `InvalidGoodreadsURL`.
  - API_KEY is mandatory for the script to work.
 
