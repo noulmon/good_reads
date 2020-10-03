@@ -29,7 +29,7 @@ class GoodreadsAPIClient:
         try:
             title = xml_tree.findtext('book/title')
             return title
-        except TypeError:
+        except Exception:
             return 'null'
 
     def _get_average_rating(self, xml_tree):
@@ -40,7 +40,7 @@ class GoodreadsAPIClient:
         try:
             average_rating = xml_tree.findtext('book/average_rating')
             return float(average_rating)
-        except TypeError:
+        except Exception:
             return 'null'
 
     def _get_ratings_count(self, xml_tree):
@@ -51,7 +51,7 @@ class GoodreadsAPIClient:
         try:
             rating_count = xml_tree.findtext('book/ratings_count')
             return int(rating_count)
-        except TypeError:
+        except Exception:
             return 'null'
 
     def _get_num_pages(self, xml_tree):
@@ -62,7 +62,7 @@ class GoodreadsAPIClient:
         try:
             num_pages = xml_tree.findtext('book/num_pages')
             return int(num_pages)
-        except TypeError:
+        except Exception:
             return 'null'
 
     def _get_image_url(self, xml_tree):
@@ -73,7 +73,7 @@ class GoodreadsAPIClient:
         try:
             image_url = xml_tree.findtext('book/image_url')
             return image_url
-        except TypeError:
+        except Exception:
             return 'null'
 
     def _get_publication_year(self, xml_tree):
@@ -84,7 +84,7 @@ class GoodreadsAPIClient:
         try:
             publication_year = xml_tree.findtext('book/publication_year')
             return publication_year
-        except TypeError:
+        except Exception:
             return 'null'
 
     def _get_authors(self, xml_tree):
@@ -95,7 +95,7 @@ class GoodreadsAPIClient:
         try:
             authors = xml_tree.findtext('book/authors/author/name')
             return authors
-        except TypeError:
+        except Exception:
             return 'null'
 
     def _get_isbn(self, url):
@@ -107,6 +107,8 @@ class GoodreadsAPIClient:
             isbn = url.split('show/')[-1].split('.')[0]
             if not isbn.isdigit():
                 isbn = isbn.split('-')[0]
+                if not isbn.isdigit():
+                    raise InvalidGoodreadsURL
             return isbn
         except Exception as e:
             raise e
@@ -122,8 +124,8 @@ class GoodreadsAPIClient:
             data = uh.read()
             xml_tree = ET.fromstring(data)
             return xml_tree
-        except urllib.error.HTTPError:
-            raise InvalidGoodreadsURL
+        except Exception as e:
+            raise e
 
     def get_book_details(self, url):
         try:
@@ -153,6 +155,4 @@ if __name__ == '__main__':
     # getting input url
     url = sys.argv[1]
     # running get_book_details script
-    gr_client.get_book_details(url)
-
     print(gr_client.get_book_details(url))
