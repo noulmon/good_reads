@@ -22,7 +22,7 @@ Replace `<GOODREADS BOOK URL>` with a book url from goodreads.
 
 Example:
 
-`get_book_details.py https://www.goodreads.com/book/show/12177850-a-song-of-ice-and-fire`
+`python get_book_details.py https://www.goodreads.com/book/show/12177850-a-song-of-ice-and-fire`
 
 ### Note:
  - If the url is invalid, the script will raise an exception`InvalidGoodreadsURL`.
